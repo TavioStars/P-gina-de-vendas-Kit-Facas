@@ -3,70 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A melhor solução para o seu negócio.">
-    <title>Página de Vendas Exclusiva</title>
+    <meta name="description" content="Transforme Sua Cozinha com Precisão de Chef - Kit Premium de 6 Facas em Aço Inox + eBook">
+    <title>Kit de Facas Premium 6 Peças - Pague na Entrega!</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wa: '#25D366',
+                        'wa-hover': '#20ba5a',
+                        dark: '#1e293b', 
+                        gold: '#f59e0b',
+                        'burnt-orange': '#ea580c',
+                        offwhite: '#f8fafc',
+                        'wa-bg': '#e5ddd5', // Fundo de conversa do WP
+                        'wa-balloon': '#dcf8c6'
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: #1e293b; 
+            background-color: #ffffff; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        
+        /* Botões de CTA */
+        .cta-btn {
+            box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.3), 0 4px 6px -2px rgba(37, 211, 102, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(37, 211, 102, 0.4), 0 10px 10px -5px rgba(37, 211, 102, 0.2);
+        }
+
+        /* Estilo WhatsApp Balão */
+        .wa-msg {
+            background-color: var(--wa-balloon, #dcf8c6);
+            position: relative;
+            border-radius: 0.75rem;
+            border-top-left-radius: 0;
+            padding: 1rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-left: 10px;
+        }
+        
+        .wa-msg::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right-color: var(--wa-balloon, #dcf8c6);
+            border-top: 0;
+            border-bottom: 10px solid transparent;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">MeuProduto PRO</div>
-            <a href="#buy" class="nav-cta">Garantir Vaga</a>
-        </div>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <span class="badge">Lançamento Exclusivo</span>
-            <h1 class="hero-title">Transforme sua vida com o <span>Método Definitivo</span></h1>
-            <p class="hero-subtitle">Junte-se a mais de 10.000 alunos que já alcançaram resultados extraordinários e mudaram suas trajetórias em apenas 4 semanas.</p>
-            <div class="hero-actions">
-                <a href="#buy" class="btn btn-primary">Sim, quero começar agora</a>
-                <a href="#benefits" class="btn btn-secondary">Entenda como funciona</a>
-            </div>
-        </div>
-        <div class="hero-image-container">
-            <div class="glass-card">
-                <h3>Resultados Comprovados</h3>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">de Satisfação</span>
+    <!-- 1. Header/Faixa de Aviso (Topo) -->
+    <div class="bg-red-700 text-white text-center py-3 px-4 shadow-lg sticky top-0 z-50">
+        <p class="font-bold text-sm md:text-base animate-pulse tracking-wide">
+            🚚 SUPER OFERTA: FRETE GRÁTIS + PAGAMENTO NO ATO DA ENTREGA!
+        </p>
+    </div>
+
+    <!-- 2. Hero Section (A primeira dobra) -->
+    <header class="bg-offwhite py-12 md:py-20 overflow-hidden border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
+                <!-- Text Area -->
+                <div class="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5 text-dark leading-tight md:leading-snug">
+                        Transforme Sua Cozinha com <span class="text-burnt-orange relative inline-block">Precisão de Chef<span class="absolute -bottom-1 left-0 w-full h-1 bg-yellow-400 rounded"></span></span> <br class="hidden md:block"/>
+                        <span class="text-2xl sm:text-3xl font-bold mt-3 block text-slate-700">(E o Melhor: Só Pague Quando o Produto Chegar nas Suas Mãos!)</span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed">
+                        Leve hoje o Kit Premium de 6 Facas em Aço Inox + eBook de Receitas Exclusivo por apenas <strong class="text-slate-900 border-b-2 border-wa">R$ 97,00</strong>. Sem riscos: você recebe em casa, confere e paga direto ao entregador.
+                    </p>
+                    
+                    <a href="#oferta" class="cta-btn bg-wa hover:bg-wa-hover text-white font-black text-lg sm:text-xl md:text-2xl py-5 px-8 rounded-xl w-full max-w-md md:max-w-none mx-auto md:mx-0 animate-pulse-fast text-center flex flex-col items-center justify-center gap-1">
+                        <span>Quero Meu Kit e Pagar na Entrega ➔</span>
+                    </a>
+                    
+                    <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 text-sm md:text-base font-semibold text-slate-700">
+                        <span class="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-sm">🛡️ Risco Zero</span>
+                        <span class="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-sm">🚚 Frete Grátis</span>
+                        <span class="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-sm">📦 Estoque Limitado</span>
+                    </div>
+                </div>
+                
+                <!-- Image Area -->
+                <div class="md:w-1/2 w-full opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards] delay-200 mt-8 md:mt-0 relative">
+                    <!-- Decorador de fundo sutil -->
+                    <div class="absolute inset-0 bg-gold rounded-3xl transform rotate-3 scale-105 opacity-20 -z-10"></div>
+                    
+                    <!-- Imagem Placeholder elegante focada em facas -->
+                    <img 
+                        src="https://images.unsplash.com/photo-1593618998160-e34014e67546?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                        alt="Kit de Facas Premium 6 Peças" 
+                        class="rounded-3xl shadow-2xl w-full object-cover h-[350px] sm:h-[450px] md:h-[550px]"
+                    >
+                    <!-- Bloquinho com destaque flutuando -->
+                    <div class="absolute -bottom-6 -right-2 md:-right-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3 border border-slate-100 animate-bounce" style="animation-duration: 3s;">
+                        <span class="text-2xl">⭐</span>
+                        <div>
+                            <p class="font-bold text-dark leading-none">Top Avaliado</p>
+                            <p class="text-xs text-slate-500">Mais de 10k vendidos</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Imagem principal de placeholder invisível estilizada no CSS -->
-            <div class="mockup-circle"></div>
-            <div class="mockup-object"></div>
         </div>
     </header>
 
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <h2 class="section-title">Por que este método funciona?</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="icon">🚀</div>
-                    <h3>Rápida Implementação</h3>
-                    <p>Aplique o que aprendeu em poucos dias e já comece a colher os resultados no primeiro mês.</p>
+    <!-- 3. Benefícios -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-dark mb-12 lg:mb-16">
+                Tudo que você precisa em <span class="text-burnt-orange relative">um único kit:<span class="absolute -bottom-1 left-0 w-full h-1 bg-gold rounded opacity-50"></span></span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <!-- Benefício 1 -->
+                <div class="bg-offwhite p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Lâminas em Aço Inox</h3>
+                    <p class="text-slate-600 leading-relaxed">Corte preciso que não perde o fio com facilidade, garantindo a durabilidade que sua cozinha merece.</p>
                 </div>
-                <div class="card">
-                    <div class="icon">💡</div>
-                    <h3>Estratégia Validada</h3>
-                    <p>Não é teoria: é a prática diária formatada em um passo a passo 100% testado.</p>
+                
+                <!-- Benefício 2 -->
+                <div class="bg-offwhite p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cabos Emborrachados</h3>
+                    <p class="text-slate-600 leading-relaxed">Segurança e conforto na hora de cortar. Design ergonômico feito para não escorregar, mesmo molhado.</p>
                 </div>
-                <div class="card">
-                    <div class="icon">🔒</div>
-                    <h3>Garantia Incondicional</h3>
-                    <p>Risco zero. Se você não tiver resultados, devolvemos todo o seu investimento.</p>
+
+                <!-- Benefício 3 -->
+                <div class="bg-offwhite p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Limpeza Fácil</h3>
+                    <p class="text-slate-600 leading-relaxed">Materiais premium que não absorvem odores e são 100% laváveis, inclusive em máquina de lavar louças.</p>
+                </div>
+
+                <!-- Benefício 4 -->
+                <div class="bg-offwhite p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Uso Versátil</h3>
+                    <p class="text-slate-600 leading-relaxed">Perfeito para o dia a dia de casa ou para uso profissional. Um kit para dominar qualquer receita.</p>
+                </div>
+
+                <!-- Benefício 5 -->
+                <div class="bg-offwhite p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Design Sofisticado</h3>
+                    <p class="text-slate-600 leading-relaxed">Acabamento premium que não só corta com perfeição, mas deixa sua cozinha muito mais bonita e moderna.</p>
+                </div>
+
+                <!-- Benefício 6 -->
+                <div class="bg-offwhite p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-5">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Kit Completo (6 Peças)</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium">1 Faca Chef, 1 Pão, 1 Santoku, 1 Utility, 1 Descascador prático e 1 Tesoura Multiuso.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- 4. Prova Social -->
+    <section class="py-16 md:py-24 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-slate-50 border-y border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-dark mb-12">
+                Veja o que diz quem já <span class="text-wa font-black">recebeu em casa:</span>
+            </h2>
+
+            <div class="space-y-8">
+                <!-- Depoimento 1 -->
+                <div class="flex items-end gap-3 max-w-2xl">
+                    <div class="w-10 h-10 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center font-bold text-slate-600">S</div>
+                    <div class="wa-msg">
+                        <div class="flex items-center justify-between mb-1 gap-4">
+                            <span class="font-bold text-slate-800 text-sm">Sônia M., 52 anos</span>
+                            <span class="text-gold text-xs">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed text-[15px]">
+                            "Eu morro de medo de comprar na internet, mas como era para pagar só quando o motoboy chegasse, eu pedi. O kit é lindo, as facas cortam muito bem e chegou super rápido!"
+                        </p>
+                        <span class="block text-right text-[10px] text-slate-400 mt-2">Ontem</span>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="flex items-end gap-3 max-w-2xl ml-auto flex-row-reverse">
+                    <div class="w-10 h-10 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center font-bold text-slate-600">R</div>
+                    <div class="wa-msg bg-white" style="--wa-balloon: #ffffff;">
+                        <!-- Ajuste para o triângulo apontar para a direita quando é o remetente (estilo alternado) -->
+                        <style>
+                            .wa-msg.bg-white::before { display: none; }
+                            .wa-msg.bg-white::after {
+                                content: '';
+                                position: absolute;
+                                right: -10px;
+                                top: 0;
+                                width: 0;
+                                height: 0;
+                                border: 10px solid transparent;
+                                border-left-color: #ffffff;
+                                border-top: 0;
+                                border-bottom: 10px solid transparent;
+                            }
+                        </style>
+                        <div class="flex items-center justify-between mb-1 gap-4">
+                            <span class="text-gold text-xs">⭐⭐⭐⭐⭐</span>
+                            <span class="font-bold text-slate-800 text-sm">Roberto Alves, 45 anos</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed text-[15px]">
+                            "Vale cada centavo. Minha esposa adorou o descascador e a faca do chef é excelente pro churrasco de domingo. Comprei sem medo."
+                        </p>
+                        <span class="block text-right text-[10px] text-slate-400 mt-2">Hoje cedo</span>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="flex items-end gap-3 max-w-2xl">
+                    <div class="w-10 h-10 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center font-bold text-slate-600">H</div>
+                    <div class="wa-msg">
+                        <div class="flex items-center justify-between mb-1 gap-4">
+                            <span class="font-bold text-slate-800 text-sm">Helena C., 61 anos</span>
+                            <span class="text-gold text-xs">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed text-[15px]">
+                            "O eBook tem receitas maravilhosas. As facas são leves e não machucam a mão. Recomendo muito!"
+                        </p>
+                        <span class="block text-right text-[10px] text-slate-400 mt-2">12:45</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-sm text-slate-500 font-medium">Mais de 10.000 clientes satisfeitos em todo o Brasil!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. A Grande Oferta -->
+    <section id="oferta" class="py-16 md:py-24 bg-dark text-white relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-burnt-orange opacity-20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+        <div class="absolute top-0 right-1/4 w-32 h-32 bg-gold opacity-10 rounded-full blur-2xl mt-20"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-wa opacity-10 rounded-full blur-3xl -ml-20 -mb-20"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-10 leading-tight">
+                A Decisão Mais Inteligente Para <br class="hidden md:block"/> <span class="text-gold">Sua Cozinha Hoje</span>
+            </h2>
+
+            <!-- Highlight Box -->
+            <div class="bg-white text-dark rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-200">
+                <div class="text-center mb-8">
+                    <span class="inline-block py-1 px-4 rounded-full bg-red-100 text-red-700 font-bold text-sm tracking-wide mb-3">🔥 OFERTA EXCLUSIVA</span>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900">O que você vai levar hoje:</h3>
+                </div>
+
+                <div class="space-y-4 mb-10 flex flex-col items-center">
+                    <ul class="text-lg md:text-xl font-medium text-slate-700 space-y-4 max-w-xl w-full">
+                        <li class="flex items-start gap-3">
+                            <span class="text-wa shrink-0 text-xl font-bold">✔️</span>
+                            <div>
+                                <span class="font-bold text-slate-900">Kit 6 Peças de Facas Premium</span> <br>
+                                <span class="text-slate-500 text-sm md:text-base">(Valor normal: R$ 149,90)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-wa shrink-0 text-xl font-bold">✔️</span>
+                            <div>
+                                <span class="font-bold text-slate-900">eBook Especial de Receitas Práticas</span> <br>
+                                <span class="text-slate-500 text-sm md:text-base">(Valor normal: R$ 47,00)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-wa shrink-0 text-xl font-bold">✔️</span>
+                            <div>
+                                <span class="font-bold text-slate-900">Frete Expresso para sua Região</span> <br>
+                                <span class="text-slate-500 text-sm md:text-base">(Valor normal: R$ 35,00)</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-200 pt-8 text-center bg-slate-50 -mx-8 -mb-8 p-8 md:p-10 rounded-b-3xl">
+                    <p class="text-xl md:text-2xl text-slate-500 font-semibold mb-2">De: <span class="line-through decoration-red-500 decoration-4">R$ 231,90</span></p>
+                    <p class="text-slate-800 text-xl md:text-2xl font-bold mb-2">Por apenas:</p>
+                    <div class="text-5xl md:text-7xl font-black text-wa drop-shadow-sm mb-4">R$ 97,00</div>
+                    <p class="bg-gray-200 inline-block px-4 py-2 rounded-lg text-slate-800 font-bold mb-8 items-center justify-center flex gap-2 mx-auto w-fit">
+                        <svg class="w-5 h-5 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        (Pagamento APENAS na Entrega)
+                    </p>
+
+                    <!-- 6. CTA Final e Garantia -->
+                    <a href="#oferta" class="cta-btn bg-wa hover:bg-wa-hover text-white font-black text-xl md:text-3xl py-6 px-6 md:px-12 rounded-2xl w-full mx-auto animate-pulse-fast text-center flex flex-col items-center justify-center gap-2 mb-6 shadow-xl block transform transition-transform border-b-4 border-green-700">
+                        GARANTIR MEU KIT AGORA ➔
+                    </a>
+                    
+                    <div class="flex items-center justify-center gap-3 text-slate-600 text-sm md:text-base font-medium mx-auto max-w-sm">
+                        <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <p class="text-left leading-tight">
+                            <strong>Garantia de 7 dias</strong> contra defeitos de fábrica. Você não tem nada a perder.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-slate-400 py-10 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <svg class="w-6 h-6 text-wa" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                <span class="font-bold text-white tracking-wide">Compra 100% Segura. Pagamento realizado presencialmente na entrega.</span>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm md:text-base mb-6">
+                <a href="#" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                <span>|</span>
+                <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                <span>|</span>
+                <a href="#" class="hover:text-white transition-colors">Contato</a>
+            </div>
+            
+            <p class="text-xs text-slate-500">
+                Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
